@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=The+Nautigal:wght@700&display=swap"
+            rel="stylesheet" />
+
+        <title>Hello, world!</title>
+
+        <style>
+            body {
+                font-family: "Poppins", sans-serif !important;
+            }
+
+            .color-1 {
+                background-color: #001233;
+                color: whitesmoke !important;
+            }
+
+            .color-2 {
+                background-color: #001845;
+            }
+
+            .color-3 {
+                background-color: #0353a4
+            }
+
+            .color-4 {
+                background-color: #023e7d;
+                color: white
+            }
+/* .shadow-color-4{
+    border-radius: 10px;
+background: #023e7d;
+box-shadow: inset 7px 7px 14px #012346,
+            inset -7px -7px 14px #0359b4;
+} */
+            .input-card {
+                /* border: 5px solid #002855;
+                border-radius: 10px; */
+                
+               border-radius: 10px;
+background: #002855;
+box-shadow: inset 7px 7px 14px #001630,
+            inset -7px -7px 14px #003a7a;
+            }
+
+            .print-button,
+            .download-button {
+                color: #1D9AF2;
+                background-color: #292D3E;
+                border: 1px solid #1D9AF2;
+                border-radius: 4px;
+                padding: 0 15px;
+                cursor: pointer;
+                height: 32px;
+                font-size: 14px;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .print-button:hover {
+                box-shadow: 1px 1px #53a7ea, 2px 2px #53a7ea, 3px 3px #53a7ea;
+                transform: translateX(-3px);
+            }
+
+            .download-button:hover {
+                box-shadow: 1px 1px #53a7ea, 2px 2px #53a7ea, 3px 3px #53a7ea;
+                transform: translateX(-3px);
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-light color-1">
+            <div class="container">
+                <a class="navbar-brand m-auto fw-bold fs-1" style="color: whitesmoke" href="#">
+                    <i class="bi bi-receipt-cutoff"> </i> <span> YOUR INVOICE</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- input card -->
+        <div class="color-2 text-center w-75 m-auto input-card mt-3">
+            <div class="p-3 color-1">Please enter the data....</div>
+            <div class="card-body">
+                <div class="input-group">
+                    <span class="input-group-text">Buyer details</span>
+                    <textarea class="form-control" aria-label="With textarea" id="buyer-details-input"></textarea>
+                    <button class="btn btn-primary" id="detail-submit-btn">Submit</button>
+                </div>
+                <!--  -->
+
+                <p class="mt-4 color-1 p-2">Enter the item details....</p>
+
+                <div class="mt-2 mx-auto col-12 col-md-6">
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Item name</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" id="item-name-input" />
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Price</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" id="item-price-input" />
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Quantity</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" id="item-quantity-input" />
+                    </div>
+                    <button type="button"  class="btn btn-primary" id="add-details-btn" >Add </button>
+                    
+                </div>
+            </div>
+            <div class="card-footer text-white">
+                <marquee width="60%" direction="left" height="100px">You can add more items using input fields.
+                </marquee>
+            </div>
+        </div>
+        <!-- end of input card -->
+        <!-- invoice section -->
+        <section class="container mt-5 color-3 p-3">
+            <div>
+                <!-- top part -->
+                <div>
+                    <h3 class='text-white fw-bold'>Invoice: #8723192</h3>
+                </div>
+                <hr class='text-white' />
+                <!-- bottom part -->
+                <div>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="color-4 p-3 h-100 rounded text-warning">date : <span id="show-date"></span></div>
+                        </div>
+
+                        <div class="col">
+                            <div class="color-4 p-3 h-100 rounded">
+
+                                <span class='text-warning'>
+                                    Invoice To
+                                </span> <br>
+                                <span id="buyer-info">
+                                   
+                                </span>
+
+
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="color-4 p-3 h-100 rounded">
+                                <span class='text-warning'>
+                                    Seller.
+                                </span> <br>
+                                <span>
+
+
+                                    abcd inc
+                                    hellow@apexo.com
+                                    16 ctg, Bangladesh
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of bottom part -->
+            </div>
+        </section>
+        <!-- invoice table -->
+        <section class='container table-data color-3 p-4 table-responsive'>
+            <table class="table table-light ">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                         
+                    </tr>
+                </thead>
+                <tbody id="info-table">
+                    <!-- <tr>
+                        <th >1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr> -->
+                   
+                   
+                   
+                </tbody>
+                <tbody>
+                   
+                   
+                    <tr>
+                        <td colspan="3" class="text-end fw-bold">SubTotal</td>
+                        <td class="text-right" >$<span id="sub-total">0</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end fw-bold">Tax</td>
+                        <td class="text-right" >$ <span id="tax">0</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end fw-bold">Grand Total</td>
+                        <td class="text-right fw-bold" >$ <span id="grand-total">0</span> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- end of invoice table -->
+        <section class="container  color-4 p-3">
+            <div>
+
+                <div>
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+
+                        <div class="col">
+                            <div class="color-4 p-3 h-100 rounded">
+
+                                <span class='text-warning'>
+                                    Bank Transfer
+                                </span> <br>
+                                <span>
+
+                                    Account Name: Sagar Biswas
+                                    Account Number:1234567890934
+                                    Code: 231231231212312
+                                </span>
+
+
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="color-4 p-3 h-100 rounded text-end">
+                                <p class='text-warning'>
+                                    Total Amount
+                                </p> 
+                                <p>
+
+$
+
+                                    <span class='text-warning fw-bold fs-2' id="grand-total-2">
+                                        0
+                                    </span> <br>
+                                    Taxes Included
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of bottom part -->
+                <p>
+                Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.    
+                </p>
+            </div>
+        </section>
+        <section class='d-flex justify-content-center align-items-center mt-5 mb-4'>
+            <button type="button" class="print-button mx-3"> <i class="bi bi-printer-fill"></i> Print InVoice</button>
+            <button type="button" class="download-button mx-3"> <i class="bi bi-arrow-down-circle-fill"></i> Download
+                Invoice</button>
+        </section>
+        <footer class='color-1 text-center'>
+            <p class='p-4'>
+                All rights reserve @shda.com
+            </p>
+
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+<script>
+    const date=new Date()
+    document.getElementById('show-date').innerText=date.toLocaleDateString()
+</script>
+        <script src="app.js"></script>
+
+    </body>
+
+</html>
